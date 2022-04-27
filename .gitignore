@@ -1,0 +1,13 @@
+.venv
+*.cache
+*.gif
+
+
+*.pyc
+__pycache__
+saved_models
+ronin-dataset
+deep-speed-constrained-ins-dataset
+
+*runs
+*torch_models*
