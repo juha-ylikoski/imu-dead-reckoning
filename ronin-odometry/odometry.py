@@ -236,14 +236,20 @@ def calc_for_scenario(data, show_plot, dataset_root, model_path):
         pos_line = None
         fig, axs = plt.subplots(2, 3)
         for i in range(6):
-            end_gt = int(len(gt) / 7 * (i + 1))
-            end_pos = int(len(pos) / 7 * (i + 1))
+            end_gt = int(len(gt) / 6 * (i + 1)) - 1
+            end_pos = int(len(pos) / 6 * (i + 1)) - 1
+            end_time = int(len(new_time) / 6 * (i + 1)) - 1
+            cur_time = new_time[end_time] - new_time[0]
+            cur_minutes = int(cur_time / 60)
+            cur_seconds = int(cur_time - cur_minutes * 60)
             row = i // 3
             col = i % 3
             gt_line = axs[row, col].plot(
                 gt[:end_gt, 0], gt[:end_gt, 1], label="Ground truth")[0]
             pos_line = axs[row, col].plot(
                 pos[:end_pos, 0], pos[:end_pos, 1], label="Estimate")[0]
+            
+            axs[row, col].set_title(f"Time={cur_minutes} min {cur_seconds} s")
 
         info_label0 = axs[0, 0].plot(
             [], [], ' ', label=f"ATE={ate:.2f}, RTE={rte:.2f}")[0]
