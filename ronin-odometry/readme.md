@@ -7,6 +7,6 @@ Code inside folder `ronin` is from https://github.com/Sachini/ronin and mostly n
 `odometry.py` contains functionality to calculate odometry for ronin dataset. (`python3 odometry.py --help`)
 
 
-These scripts cache files (ronin caches to `$(cwd)/.cache` and odometry.py to `odometry.py.cache`) to improve performance.
+These scripts cache files (ronin caches to `$(pwd)/.cache` and odometry.py to `odometry.py.cache`) to improve performance.
 
 
